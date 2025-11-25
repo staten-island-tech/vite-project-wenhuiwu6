@@ -26,61 +26,61 @@ import "./style.css";
 const mangas = [
   {
     name: "One Piece",
-    image: "https://example.com/one-piece.jpg",
+    image: "OnePiece.jpg",
   },
   {
     name: "Naruto",
-    image: "https://example.com/naruto.jpg",
+    image: "Naruto.jpg",
   },
   {
     name: "Bleach",
-    image: "https://example.com/bleach.jpg",
-    alt: "Bleach manga cover",
+    image: "Bleach.png",
+    alt: "",
   },
   {
     name: "Attack on Titan",
-    image: "https://example.com/aot.jpg",
-    alt: "Attack on Titan manga cover",
+    image: "AttackOnTitan.png",
+    alt: "",
   },
   {
     name: "Jujutsu Kaisen",
-    image: "https://example.com/jujutsu-kaisen.jpg",
-    alt: "Jujutsu Kaisen manga cover",
+    image: "JujutsuKaisen.jpg",
+    alt: "",
   },
   {
-    name: "My Hero Academia",
-    image: "https://example.com/mha.jpg",
-    alt: "My Hero Academia manga cover",
+    name: "Bungo Stray Dogs",
+    image: "BungoStrayDogs.webp",
+    alt: "",
   },
   {
     name: "Chainsaw Man",
-    image: "https://example.com/chainsaw-man.jpg",
-    alt: "Chainsaw Man manga cover",
+    image: "",
+    alt: "",
   },
   {
     name: "Tokyo Ghoul",
-    image: "https://example.com/tokyo-ghoul.jpg",
-    alt: "Tokyo Ghoul manga cover",
+    image: "",
+    alt: "",
   },
   {
     name: "Fullmetal Alchemist",
-    image: "https://example.com/fma.jpg",
-    alt: "Fullmetal Alchemist manga cover",
+    image: "",
+    alt: "",
   },
   {
     name: "Demon Slayer: Kimetsu no Yaiba",
-    image: "https://example.com/demon-slayer.jpg",
-    alt: "Demon Slayer manga cover",
+    image: "",
+    alt: "",
   },
   {
     name: "Berserk",
-    image: "https://example.com/berserk.jpg",
-    alt: "Berserk manga cover",
+    image: "",
+    alt: "",
   },
   {
     name: "Vagabond",
-    image: "https://example.com/vagabond.jpg",
-    alt: "Vagabond manga cover",
+    image: "",
+    alt: "",
   },
 ];
 
@@ -90,10 +90,8 @@ function inject(item) {
       <img class = "card-img" src="${item.image}">
       <h2 class = "card-name"> ${item.name}</h2>
       <p class = "card-alt"> ${item.alt}</p>
-      <p class = "card-price"> price: $${item.price}</p>
-      <button class="button"> Add to Cart</button>
     </div>`;
   container.insertAdjacentHTML("afterbegin", html);
 }
 
-cats.forEach((item) => inject(item));
+mangas.forEach((item) => inject(item));
