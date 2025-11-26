@@ -27,10 +27,12 @@ const mangas = [
   {
     name: "One Piece",
     image: "OnePiece.jpg",
+    alt: "",
   },
   {
     name: "Naruto",
     image: "Naruto.jpg",
+    alt: "",
   },
   {
     name: "Bleach",
@@ -54,32 +56,32 @@ const mangas = [
   },
   {
     name: "Chainsaw Man",
-    image: "",
+    image: "ChainsawMan.jpg",
     alt: "",
   },
   {
     name: "Tokyo Ghoul",
-    image: "",
+    image: "TokyoGhoul.jpg",
     alt: "",
   },
   {
-    name: "Fullmetal Alchemist",
-    image: "",
+    name: "Spy x Family",
+    image: "SpyXFamily.jpg",
     alt: "",
   },
   {
     name: "Demon Slayer: Kimetsu no Yaiba",
-    image: "",
+    image: "DemonSlayer.jpg",
     alt: "",
   },
   {
-    name: "Berserk",
-    image: "",
+    name: "Case Closed",
+    image: "CaseClosed.webp",
     alt: "",
   },
   {
-    name: "Vagabond",
-    image: "",
+    name: "Death Note",
+    image: "DeathNote.jpg",
     alt: "",
   },
 ];
