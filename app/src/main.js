@@ -105,8 +105,21 @@ function inject(item) {
       <h2 class = "card-name"> ${item.name}</h2>
       <p class = "card-alt"> ${item.alt}</p>
       <p class = "card-year"> Year: ${item.year}</p>
+      <button class="read">Read</button>
     </div>`;
   container.insertAdjacentHTML("afterbegin", html);
 }
 
 mangas.forEach((item) => inject(item));
+
+function AddNowhere() {
+  const buttons = document.querySelectorAll(".read");
+  const btnArray = Array.from(buttons);
+  btnArray.forEach((btn) =>
+    btn.addEventListener("click", function (event) {
+      event.target.closest(".card").getAttribute("data-name");
+    })
+  );
+}
+
+AddNowhere();
