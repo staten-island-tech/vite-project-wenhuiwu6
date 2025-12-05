@@ -105,21 +105,26 @@ function inject(item) {
       <h2 class = "card-name"> ${item.name}</h2>
       <p class = "card-alt"> ${item.alt}</p>
       <p class = "card-year"> Year: ${item.year}</p>
-      <button class="read">Read</button>
+      <button class="button">Read</button>
     </div>`;
   container.insertAdjacentHTML("afterbegin", html);
 }
 
 mangas.forEach((item) => inject(item));
 
-function AddNowhere() {
-  const buttons = document.querySelectorAll(".read");
+function addRead() {
+  const buttons = document.querySelectorAll(".button");
   const btnArray = Array.from(buttons);
   btnArray.forEach((btn) =>
     btn.addEventListener("click", function (event) {
-      event.target.closest(".card").getAttribute("data-name");
+      const read = document.querySelector(".read");
+      const name = event.target.closest(".card").getAttribute("data-name");
+
+      const html = `<div class="read-item" ${name}`;
+      cart.insertAdjacentHTML("afterbegin", html);
+      insideRead();
     })
   );
 }
 
-AddNowhere();
+addRead();
