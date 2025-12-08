@@ -112,19 +112,57 @@ function inject(item) {
 
 mangas.forEach((item) => inject(item));
 
-function addRead() {
-  const buttons = document.querySelectorAll(".button");
-  const btnArray = Array.from(buttons);
-  btnArray.forEach((btn) =>
-    btn.addEventListener("click", function (event) {
-      const read = document.querySelector(".read");
-      const name = event.target.closest(".card").getAttribute("data-name");
+function filter(type) {
+  const container = document.querySelector(".container");
+  container.innerHTML = "";
+  mangas.forEach(function (manga) {
+    if (type === "all") {
+      inject(manga);
+    }
+    if (type === "older" && manga.year < 2000) {
+      inject(manga);
+    }
+    if (type === "mid" && cat.year >= 2000 && cat.year <= 2010) {
+      inject(manga);
+    }
+    if (type === "younger" && cat.year > 2020) {
+      inject(manga);
+    }
+  });
 
-      const html = `<div class="read-item" ${name}`;
-      cart.insertAdjacentHTML("afterbegin", html);
-      insideRead();
-    })
-  );
+  addToCart();
 }
 
-addRead();
+function showFilter() {
+  const buttons = document.querySelectorAll(".filter button");
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      filter(btn.getAttribute("data-filter"));
+    });
+  });
+}
+
+showFilter();
+
+// function addRead() {
+//   const buttons = document.querySelectorAll(".button");
+//   const btnArray = Array.from(buttons);
+//   btnArray.forEach((btn) =>
+//     btn.addEventListener("click", function (event) {
+//       const read = document.querySelector(".read");
+//       const name = event.target.closest(".card").getAttribute("data-name");
+
+//       const html = `<div class="read-item" ${name}`;
+//       read.insertAdjacentHTML("afterbegin", html);
+//       insideRead();
+//     })
+//   );
+// }
+
+// addRead();
+
+// function insideRead() {
+//   const read = document.querySelector(".read");
+//   readManga = document.querySelector(".read-name");
+//   const html = `<div class="cart-read"> Books: $${readManga}</div>`;
+// }

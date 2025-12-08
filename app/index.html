@@ -8,10 +8,15 @@
   </head>
   <body>
     <h1>Manga Collection</h1>
+      <div class="filter">
+        <button data-filter="all">All</button>
+        <button data-filter="older">1990-2000</button>
+        <button data-filter="mid">2000-2010</button>
+      <button data-filter="younger">2010-2020</button>
+    </div>
 
     <div class="container"></div>
-    <h3>Already Read</h3>
-    <div class="read"></div>
+
     <div id="app"></div>
     <script type="module" src="./src/main.js"></script>
   </body>
