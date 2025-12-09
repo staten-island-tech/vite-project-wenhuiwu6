@@ -98,13 +98,30 @@ const mangas = [
   },
 ];
 
+// function inject(item) {
+//   const container = document.querySelector(".container");
+//   const html = ` <div class="card" data-name="${item.name}" data-img="${item.image}" data-alt="${item.alt}" data-year="${item.year}" >
+//       <img class = "card-img" src="${item.image}">
+//       <h2 class = "card-name"> ${item.name}</h2>
+//       <p class = "card-alt"> ${item.alt}</p>
+//       <p class = "card-year"> Year: ${item.year}</p>
+//       <button class="button">Read</button>
+//     </div>`;
+//   container.insertAdjacentHTML("afterbegin", html);
+// }
+
 function inject(item) {
   const container = document.querySelector(".container");
-  const html = ` <div class="card" data-name="${item.name}" data-img="${item.image}" data-alt="${item.alt}" data-year="${item.year}" >
-      <img class = "card-img" src="${item.image}">
-      <h2 class = "card-name"> ${item.name}</h2>
-      <p class = "card-alt"> ${item.alt}</p>
-      <p class = "card-year"> Year: ${item.year}</p>
+  const html = `
+    <div class="card" 
+         data-name="${item.name}" 
+         data-img="${item.image}" 
+         data-alt="${item.alt}" 
+         data-year="${item.year}">
+      <img class="card-img" src="${item.image}">
+      <h2 class="card-name">${item.name}</h2>
+      <p class="card-alt">${item.alt}</p>
+      <p class="card-year">Year: ${item.year}</p>
       <button class="button">Read</button>
     </div>`;
   container.insertAdjacentHTML("afterbegin", html);
@@ -115,29 +132,32 @@ mangas.forEach((item) => inject(item));
 function filter(type) {
   const container = document.querySelector(".container");
   container.innerHTML = "";
-  mangas.forEach(function (manga) {
-    if (type === "all") {
+
+  mangas.forEach((manga) => {
+    const year = manga.year;
+
+    if (type === "all") inject(manga);
+
+    if (type === "older" && year >= 1990 && year < 2000) {
       inject(manga);
     }
-    if (type === "older" && manga.year < 2000) {
+
+    if (type === "mid" && year >= 2000 && year <= 2010) {
       inject(manga);
     }
-    if (type === "mid" && cat.year >= 2000 && cat.year <= 2010) {
-      inject(manga);
-    }
-    if (type === "younger" && cat.year > 2020) {
+
+    if (type === "younger" && year > 2010 && year <= 2020) {
       inject(manga);
     }
   });
-
-  addToCart();
 }
 
 function showFilter() {
   const buttons = document.querySelectorAll(".filter button");
-  buttons.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      filter(btn.getAttribute("data-filter"));
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filterType = btn.getAttribute("data-filter");
+      filter(filterType);
     });
   });
 }
