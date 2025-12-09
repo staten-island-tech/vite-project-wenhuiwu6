@@ -122,12 +122,22 @@ function inject(item) {
       <h2 class="card-name">${item.name}</h2>
       <p class="card-alt">${item.alt}</p>
       <p class="card-year">Year: ${item.year}</p>
-      <button class="button">Read</button>
+      <button class="toRead">Read</button>
     </div>`;
   container.insertAdjacentHTML("afterbegin", html);
 }
 
 mangas.forEach((item) => inject(item));
+
+function addToRead() {
+  const buttons = document.querySelectorAll(".toRead");
+  const btnArray = Array.from(buttons);
+  btnArray.forEach((btn) =>
+    btn.addEventListener("click", function (event){
+      const 
+  })
+  )
+}
 
 function filter(type) {
   const container = document.querySelector(".container");
