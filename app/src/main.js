@@ -98,18 +98,6 @@ const mangas = [
   },
 ];
 
-// function inject(item) {
-//   const container = document.querySelector(".container");
-//   const html = ` <div class="card" data-name="${item.name}" data-img="${item.image}" data-alt="${item.alt}" data-year="${item.year}" >
-//       <img class = "card-img" src="${item.image}">
-//       <h2 class = "card-name"> ${item.name}</h2>
-//       <p class = "card-alt"> ${item.alt}</p>
-//       <p class = "card-year"> Year: ${item.year}</p>
-//       <button class="button">Read</button>
-//     </div>`;
-//   container.insertAdjacentHTML("afterbegin", html);
-// }
-
 function inject(item) {
   const container = document.querySelector(".container");
   const html = `
@@ -129,15 +117,17 @@ function inject(item) {
 
 mangas.forEach((item) => inject(item));
 
-function addToRead() {
-  const buttons = document.querySelectorAll(".toRead");
-  const btnArray = Array.from(buttons);
-  btnArray.forEach((btn) =>
-    btn.addEventListener("click", function (event){
-      const 
-  })
-  )
-}
+// function addToRead() {
+//   const buttons = document.querySelectorAll(".toRead");
+//   const btnArray = Array.from(buttons);
+//   btnArray.forEach((btn) =>
+//     btn.addEventListener("click", function (event) {
+//       const showRead = document.querySelector(".showRead");
+//       const name = event.target.closest(".card").getAttribute("data-name");
+//       const html = `<div class="things" ${name}`;
+//     })
+//   );
+// }
 
 function filter(type) {
   const container = document.querySelector(".container");
@@ -173,26 +163,3 @@ function showFilter() {
 }
 
 showFilter();
-
-// function addRead() {
-//   const buttons = document.querySelectorAll(".button");
-//   const btnArray = Array.from(buttons);
-//   btnArray.forEach((btn) =>
-//     btn.addEventListener("click", function (event) {
-//       const read = document.querySelector(".read");
-//       const name = event.target.closest(".card").getAttribute("data-name");
-
-//       const html = `<div class="read-item" ${name}`;
-//       read.insertAdjacentHTML("afterbegin", html);
-//       insideRead();
-//     })
-//   );
-// }
-
-// addRead();
-
-// function insideRead() {
-//   const read = document.querySelector(".read");
-//   readManga = document.querySelector(".read-name");
-//   const html = `<div class="cart-read"> Books: $${readManga}</div>`;
-// }
