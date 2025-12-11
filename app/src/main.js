@@ -117,18 +117,6 @@ function inject(item) {
 
 mangas.forEach((item) => inject(item));
 
-// function addToRead() {
-//   const buttons = document.querySelectorAll(".toRead");
-//   const btnArray = Array.from(buttons);
-//   btnArray.forEach((btn) =>
-//     btn.addEventListener("click", function (event) {
-//       const showRead = document.querySelector(".showRead");
-//       const name = event.target.closest(".card").getAttribute("data-name");
-//       const html = `<div class="things" ${name}`;
-//     })
-//   );
-// }
-
 function filter(type) {
   const container = document.querySelector(".container");
   container.innerHTML = "";
@@ -163,3 +151,26 @@ function showFilter() {
 }
 
 showFilter();
+
+document.addEventListener("click", (e) => {
+  if (e.target.className === "toRead") {
+    const card = e.target.closest(".card");
+    const showRead = document.querySelector(".showRead");
+
+    const name = card.getAttribute("data-name");
+    const img = card.getAttribute("data-img");
+    const alt = card.getAttribute("data-alt");
+    const year = card.getAttribute("data-year");
+
+    const html = `
+      <div class="card" data-name="${name}" data-img="${img}" data-alt="${alt}" data-year="${year}">
+        <img class="card-img" src="${img}">
+        <h2 class="card-name">${name}</h2>
+        <p class="card-alt">${alt}</p>
+        <p class="card-year">Year: ${year}</p>
+      </div>
+    `;
+
+    showRead.insertAdjacentHTML("afterbegin", html);
+  }
+});
