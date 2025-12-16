@@ -11,10 +11,20 @@
 
     <button class="theme-btn">Switch Theme</button>
 
-      <div class="filter">
-        <button data-filter="all">All</button>
-        <button data-filter="older">1990-2000</button>
-        <button data-filter="mid">2000-2010</button>
+      <form id="searchForm">
+      <input
+        type="text"
+        id="title"
+        placeholder="Search manga..."
+        autocomplete="off"
+      />
+      <button type="submit">Search</button>
+    </form>
+
+    <div class="filter">
+      <button data-filter="all">All</button>
+      <button data-filter="older">1990-2000</button>
+      <button data-filter="mid">2000-2010</button>
       <button data-filter="younger">2010-2020</button>
     </div>
 

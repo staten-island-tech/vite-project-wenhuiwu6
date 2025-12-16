@@ -186,3 +186,25 @@ themeBtn.addEventListener("click", () => {
     document.body.classList.add("light");
   }
 });
+
+document.getElementById("searchForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const value = document.getElementById("title").value.toLowerCase();
+  const container = document.querySelector(".container");
+
+  container.innerHTML = "";
+
+  let found = false;
+
+  mangas.forEach((item) => {
+    if (item.name.toLowerCase().includes(value)) {
+      inject(item);
+      found = true;
+    }
+  });
+
+  if (!found) {
+    container.innerHTML = "<p>No manga found.</p>";
+  }
+});
